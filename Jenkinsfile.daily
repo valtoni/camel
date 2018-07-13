@@ -23,7 +23,7 @@ def BUILD_JDK_NAME = env.JDK_NAME ?: 'JDK 1.8 (latest)'
 
 def MAVEN_PARAMS = "-U -B -e -fae -V -Dmaven.repo.local=${LOCAL_REPOSITORY} -Dnoassembly -Dmaven.compiler.fork=true -Dsurefire.rerunFailingTestsCount=2"
 
-def jdk9_result, jdk10_result, jdk11_result
+def jdk10_result, jdk11_result
 
 pipeline {
 
@@ -50,24 +50,6 @@ pipeline {
             }
             steps {
                 sh "./mvnw $MAVEN_PARAMS -Dmaven.test.skip.exec=true clean install"
-            }
-        }
-
-        stage('Test JDK 9') {
-            tools {
-                jdk 'JDK 1.9 (latest)'
-            }
-            steps {
-                script {
-                    jdk9_result = sh script: "./mvnw $MAVEN_PARAMS -Dmaven.test.failure.ignore=true test", returnStatus: true
-                }
-            }
-            post {
-                always {
-                    junit allowEmptyResults: true, testResults: '**/target/surefire-reports/*.xml'
-                    junit allowEmptyResults: true, testResults: '**/target/failsafe-reports/*.xml'
-                    sh "find . -path '*/target/surefire-reports/*' -delete -o -path '*/target/failsafe-reports/*' -delete" 
-                }
             }
         }
 
@@ -112,7 +94,7 @@ pipeline {
     post {
         always {
             script {
-                currentBuild.result = jdk9_result == 0 && jdk10_result == 0 && jdk11_result == 0 ? 'SUCCESS' : 'FAILURE'
+                currentBuild.result = jdk10_result == 0 && jdk11_result == 0 ? 'SUCCESS' : 'FAILURE'
             }
         }
     }
