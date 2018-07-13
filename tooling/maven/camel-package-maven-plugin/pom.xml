@@ -44,6 +44,17 @@
     </dependencies>
   </dependencyManagement>
 
+  <!-- added to allow for Java 10+ compatibility in MVEL
+       there is no release that includes this fix
+       https://github.com/mvel/mvel/issues/159
+  -->
+  <repositories>
+    <repository>
+        <id>jitpack.io</id>
+        <url>https://jitpack.io</url>
+    </repository>
+  </repositories>
+
   <dependencies>
 
     <!-- use our patched ordered json-simple parser -->
@@ -53,10 +64,11 @@
       <version>${project.version}</version>
     </dependency>
 
+    <!-- see above, targeting MVEL with Java 10+ support -->
     <dependency>
-      <groupId>org.mvel</groupId>
-      <artifactId>mvel2</artifactId>
-      <version>${mvel-version}</version>
+      <groupId>com.github.mvel</groupId>
+      <artifactId>mvel</artifactId>
+      <version>97071e83fb</version>
     </dependency>
 
     <dependency>
