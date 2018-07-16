@@ -501,13 +501,20 @@
 
       </dependencies>
 
+    </profile>
+
+    <profile>
+      <id>jdk9-10--build</id>
+      <activation>
+        <jdk>[9,10]</jdk>
+      </activation>
       <build>
         <plugins>
           <plugin>
             <artifactId>maven-surefire-plugin</artifactId>
             <configuration>
               <reuseForks>true</reuseForks>
-              <argLine>--patch-module java.xml.ws.annotation=${project.basedir}/target/java9/javax.annotation-api-1.2.jar --patch-module java.xml.bind=${project.basedir}/target/java9 ${camel.surefire.fork.vmargs} --add-opens java.base/java.lang=java.xml.bind</argLine>
+              <argLine>--patch-module java.xml.ws.annotation=${project.basedir}/target/java9/javax.annotation-api-${annotation-api-version}.jar --patch-module java.xml.bind=${project.basedir}/target/java9 ${camel.surefire.fork.vmargs} --add-opens java.base/java.lang=java.xml.bind</argLine>
             </configuration>
           </plugin>
           <plugin>
@@ -526,7 +533,7 @@
                     <artifactItem>
                       <groupId>javax.annotation</groupId>
                       <artifactId>javax.annotation-api</artifactId>
-                      <version>1.2</version>
+                      <version>${annotation-api-version}</version>
                       <type>jar</type>
                       <overWrite>false</overWrite>
                       <outputDirectory>${project.basedir}/target/java9</outputDirectory>
@@ -567,6 +574,24 @@
           </plugin>
         </plugins>
       </build>
+    </profile>
+    <profile>
+      <id>jdk11+-build</id>
+      <activation>
+        <jdk>[11,)</jdk>
+      </activation>
+      <dependencies>
+        <dependency>
+          <groupId>javax.xml.bind</groupId>
+          <artifactId>jaxb-api</artifactId>
+          <version>${jaxb-version}</version>
+        </dependency>
+        <dependency>
+          <groupId>javax.annotation</groupId>
+          <artifactId>javax.annotation-api</artifactId>
+          <version>${annotation-api-version}</version>
+        </dependency>
+      </dependencies>
     </profile>
   </profiles>
 

@@ -412,10 +412,10 @@
               </execution>
             </executions>
           </plugin>
-		      <plugin>
+          <plugin>
             <groupId>org.codehaus.mojo</groupId>
             <artifactId>jaxb2-maven-plugin</artifactId>
-            <version>2.3.1</version>
+            <version>2.4</version>
             <executions>
               <execution>
                 <id>generate-schema</id>
@@ -489,9 +489,9 @@
       </build>
     </profile>
     <profile>
-      <id>jdk9+-build</id>
+      <id>jdk9-10-build</id>
       <activation>
-        <jdk>[9,)</jdk>
+        <jdk>[9,10]</jdk>
         <property>
           <name>!os.unsupported.schemagen</name>
         </property>
@@ -502,7 +502,7 @@
             <plugin>
               <groupId>org.codehaus.mojo</groupId>
               <artifactId>jaxb2-maven-plugin</artifactId>
-              <version>2.3.1</version>
+              <version>2.4</version>
               <dependencies>
                 <dependency>
                   <groupId>org.glassfish.jaxb</groupId>
@@ -526,6 +526,63 @@
               <argLine>--add-modules java.xml.bind,java.xml.ws --add-opens java.base/java.lang=ALL-UNNAMED</argLine>
             </configuration>
           </plugin>
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-antrun-plugin</artifactId>
+            <version>1.8</version>
+            <executions>
+              <execution>
+                <id>include-sources</id>
+                <phase>package</phase>
+                <configuration>
+                  <target>
+                    <echo>Including source code from camel-core-xml in the camel-blueprint-sources.jar</echo>
+                    <jar destfile="${project.build.directory}/${project.artifactId}-${project.version}-sources.jar"
+                         update="true">
+                      <fileset dir="${basedir}/../camel-core-osgi/src/main/java" includes="**/*"/>
+                      <fileset dir="${basedir}/../camel-core-xml/src/main/java" includes="**/*"/>
+                    </jar>
+                  </target>
+                </configuration>
+                <goals>
+                  <goal>run</goal>
+                </goals>
+              </execution>
+            </executions>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+    <profile>
+      <id>jdk11+-build</id>
+      <activation>
+        <jdk>[11,)</jdk>
+      </activation>
+      <dependencies>
+        <dependency>
+          <groupId>javax.xml.bind</groupId>
+          <artifactId>jaxb-api</artifactId>
+          <version>${jaxb-version}</version>
+        </dependency>
+      </dependencies>
+      <build>
+        <pluginManagement>
+          <plugins>
+            <plugin>
+              <groupId>org.codehaus.mojo</groupId>
+              <artifactId>jaxb2-maven-plugin</artifactId>
+              <version>2.4</version>
+              <dependencies>
+                <dependency>
+                  <groupId>javax.activation</groupId>
+                  <artifactId>javax.activation-api</artifactId>
+                  <version>1.2.0</version>
+                </dependency>
+              </dependencies>
+            </plugin>
+          </plugins>
+        </pluginManagement>
+        <plugins>
           <plugin>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-antrun-plugin</artifactId>

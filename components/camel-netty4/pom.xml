@@ -84,23 +84,36 @@
   </dependencies>
     
   <profiles>
-      <profile>
-          <id>jdk9+-build</id>
-          <activation>
-              <jdk>[9,)</jdk>
-          </activation>
-          <build>
-              <plugins>
-                  <plugin>
-                      <artifactId>maven-surefire-plugin</artifactId>
-                      <configuration>
-                          <forkedProcessTimeoutInSeconds>3000</forkedProcessTimeoutInSeconds>
-                          <argLine>--add-modules java.xml.bind --add-opens java.base/java.lang=ALL-UNNAMED --add-opens java.base/java.lang.reflect=ALL-UNNAMED --add-opens java.base/java.nio=ALL-UNNAMED</argLine>
-                      </configuration>
-                  </plugin>
-              </plugins>
-          </build>
-      </profile>
+    <profile>
+      <id>jdk9-10-build</id>
+      <activation>
+        <jdk>[9,10]</jdk>
+      </activation>
+      <build>
+        <plugins>
+          <plugin>
+            <artifactId>maven-surefire-plugin</artifactId>
+            <configuration>
+              <forkedProcessTimeoutInSeconds>3000</forkedProcessTimeoutInSeconds>
+              <argLine>--add-modules java.xml.bind --add-opens java.base/java.lang=ALL-UNNAMED --add-opens java.base/java.lang.reflect=ALL-UNNAMED --add-opens java.base/java.nio=ALL-UNNAMED</argLine>
+            </configuration>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+    <profile>
+      <id>jdk11+-build</id>
+      <activation>
+        <jdk>[11,)</jdk>
+      </activation>
+      <dependencies>
+        <dependency>
+          <groupId>javax.xml.bind</groupId>
+          <artifactId>jaxb-api</artifactId>
+          <version>${jaxb-version}</version>
+        </dependency>
+      </dependencies>
+    </profile>
   </profiles>  
 
 </project>

@@ -190,9 +190,9 @@
 
   <profiles>
     <profile>
-      <id>jdk9+-build</id>
+      <id>jdk9-10-build</id>
       <activation>
-        <jdk>[9,)</jdk>
+        <jdk>[9,10]</jdk>
       </activation>
       <build>
         <plugins>
@@ -204,6 +204,24 @@
           </plugin>
         </plugins>
       </build>
+    </profile>
+    <profile>
+      <id>jdk11+-build</id>
+      <activation>
+        <jdk>[11,)</jdk>
+      </activation>
+      <dependencies>
+        <dependency>
+          <groupId>javax.xml.bind</groupId>
+          <artifactId>jaxb-api</artifactId>
+          <version>${jaxb-version}</version>
+        </dependency>
+        <dependency>
+          <groupId>javax.annotation</groupId>
+          <artifactId>javax.annotation-api</artifactId>
+          <version>${annotation-api-version}</version>
+        </dependency>
+      </dependencies>
     </profile>
   </profiles>
 
