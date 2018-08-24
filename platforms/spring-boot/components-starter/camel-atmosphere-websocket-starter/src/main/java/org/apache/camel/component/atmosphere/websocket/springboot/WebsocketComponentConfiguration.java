@@ -32,9 +32,14 @@ public class WebsocketComponentConfiguration
             ComponentConfigurationPropertiesCommon {
 
     /**
+     * Whether to enable auto configuration of the atmosphere-websocket
+     * component. This is enabled by default.
+     */
+    private Boolean enabled;
+    /**
      * Default name of servlet to use. The default name is CamelServlet.
      */
-    private String servletName;
+    private String servletName = "CamelServlet";
     /**
      * To use a custom org.apache.camel.component.servlet.HttpRegistry. The
      * option is a org.apache.camel.component.servlet.HttpRegistry type.
@@ -49,6 +54,11 @@ public class WebsocketComponentConfiguration
      * Servlet's.
      */
     private Boolean attachmentMultipartBinding = false;
+    /**
+     * Whitelist of accepted filename extensions for accepting uploaded files.
+     * Multiple extensions can be separated by comma, such as txt,xml.
+     */
+    private String fileNameExtWhitelist;
     /**
      * To use a custom HttpBinding to control the mapping between Camel message
      * and HttpClient. The option is a org.apache.camel.http.common.HttpBinding
@@ -103,6 +113,14 @@ public class WebsocketComponentConfiguration
 
     public void setAttachmentMultipartBinding(Boolean attachmentMultipartBinding) {
         this.attachmentMultipartBinding = attachmentMultipartBinding;
+    }
+
+    public String getFileNameExtWhitelist() {
+        return fileNameExtWhitelist;
+    }
+
+    public void setFileNameExtWhitelist(String fileNameExtWhitelist) {
+        this.fileNameExtWhitelist = fileNameExtWhitelist;
     }
 
     public String getHttpBinding() {

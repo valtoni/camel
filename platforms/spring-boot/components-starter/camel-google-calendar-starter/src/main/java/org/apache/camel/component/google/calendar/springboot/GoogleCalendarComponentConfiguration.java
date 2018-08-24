@@ -33,6 +33,11 @@ public class GoogleCalendarComponentConfiguration
             ComponentConfigurationPropertiesCommon {
 
     /**
+     * Whether to enable auto configuration of the google-calendar component.
+     * This is enabled by default.
+     */
+    private Boolean enabled;
+    /**
      * To use the shared configuration
      */
     private GoogleCalendarConfigurationNestedConfiguration configuration;
@@ -112,7 +117,7 @@ public class GoogleCalendarComponentConfiguration
         private String refreshToken;
         /**
          * Google calendar application name. Example would be
-         * "camel-google-calendar/1.0"
+         * camel-google-calendar/1.0
          */
         private String applicationName;
         /**

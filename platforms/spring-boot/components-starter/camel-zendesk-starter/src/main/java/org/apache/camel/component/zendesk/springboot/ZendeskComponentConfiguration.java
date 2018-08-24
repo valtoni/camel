@@ -32,6 +32,11 @@ public class ZendeskComponentConfiguration
             ComponentConfigurationPropertiesCommon {
 
     /**
+     * Whether to enable auto configuration of the zendesk component. This is
+     * enabled by default.
+     */
+    private Boolean enabled;
+    /**
      * To use the shared configuration
      */
     private ZendeskConfigurationNestedConfiguration configuration;
@@ -77,44 +82,26 @@ public class ZendeskComponentConfiguration
         public static final Class CAMEL_NESTED_CLASS = org.apache.camel.component.zendesk.ZendeskConfiguration.class;
         /**
          * What operation to use
-         * 
-         * @param methodNamethe
-         *            methodName to set
          */
         private String methodName;
         /**
          * The server URL to connect.
-         * 
-         * @param url
-         *            server URL
          */
         private String serverUrl;
         /**
          * The user name.
-         * 
-         * @param user
-         *            user name
          */
         private String username;
         /**
          * The security token.
-         * 
-         * @param token
-         *            security token
          */
         private String token;
         /**
          * The OAuth token.
-         * 
-         * @param token
-         *            OAuth token
          */
         private String oauthToken;
         /**
          * The password.
-         * 
-         * @param password
-         *            password
          */
         private String password;
 

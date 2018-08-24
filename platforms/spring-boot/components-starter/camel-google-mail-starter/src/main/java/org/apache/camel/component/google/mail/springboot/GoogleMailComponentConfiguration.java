@@ -33,6 +33,11 @@ public class GoogleMailComponentConfiguration
             ComponentConfigurationPropertiesCommon {
 
     /**
+     * Whether to enable auto configuration of the google-mail component. This
+     * is enabled by default.
+     */
+    private Boolean enabled;
+    /**
      * To use the shared configuration
      */
     private GoogleMailConfigurationNestedConfiguration configuration;
@@ -105,8 +110,7 @@ public class GoogleMailComponentConfiguration
          */
         private String refreshToken;
         /**
-         * Google mail application name. Example would be
-         * "camel-google-mail/1.0"
+         * Google mail application name. Example would be camel-google-mail/1.0
          */
         private String applicationName;
 

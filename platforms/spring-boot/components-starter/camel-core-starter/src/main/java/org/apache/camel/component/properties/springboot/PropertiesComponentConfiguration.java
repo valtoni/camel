@@ -35,6 +35,11 @@ public class PropertiesComponentConfiguration
             ComponentConfigurationPropertiesCommon {
 
     /**
+     * Whether to enable auto configuration of the properties component. This is
+     * enabled by default.
+     */
+    private Boolean enabled;
+    /**
      * A list of locations to load properties. This option will override any
      * default locations and only use the locations from this option.
      */
@@ -48,8 +53,8 @@ public class PropertiesComponentConfiguration
     /**
      * Encoding to use when loading properties file from the file system or
      * classpath. If no encoding has been set, then the properties files is
-     * loaded using ISO-8859-1 encoding (latin-1) as documented by link
-     * java.util.Propertiesload(java.io.InputStream)
+     * loaded using ISO-8859-1 encoding (latin-1) as documented by
+     * java.util.Properties#load(java.io.InputStream)
      */
     private String encoding;
     /**
@@ -92,13 +97,13 @@ public class PropertiesComponentConfiguration
     private Boolean ignoreMissingLocation = false;
     /**
      * Sets the value of the prefix token used to identify properties to
-     * replace. Setting a value of null restores the default token (link link
+     * replace. Setting a value of null restores the default token (link
      * DEFAULT_PREFIX_TOKEN).
      */
     private String prefixToken = "{{";
     /**
      * Sets the value of the suffix token used to identify properties to
-     * replace. Setting a value of null restores the default token (link link
+     * replace. Setting a value of null restores the default token (link
      * DEFAULT_SUFFIX_TOKEN).
      */
     private String suffixToken = "}}";

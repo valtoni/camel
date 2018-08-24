@@ -39,12 +39,12 @@
     * [Inversion Of Control With Smart Defaults](inversion-of-control-with-smart-defaults.adoc)
     * [Lifecycle](lifecycle.adoc)
     * [OnCompletion](oncompletion.adoc)
+    * [Predicate](predicate.adoc)
     * [Registry](registry.adoc)
     * [Scala DSL](scala-dsl.adoc)
 
 <!--
     * [Pluggable Class Resolvers](.adoc)
-    * [Predicate](.adoc)
     * [Processor](.adoc)
     * [RouteBuilder](.adoc)
     * [RoutePolicy](.adoc)
@@ -145,6 +145,7 @@
 	* [AWS DynamoDB](aws-ddb-component.adoc)
 	* [AWS DynamoDB Streams](aws-ddbstream-component.adoc)
 	* [AWS EC2](aws-ec2-component.adoc)
+	* [AWS IAM](aws-iam-component.adoc)
 	* [AWS Kinesis](aws-kinesis-component.adoc)
 	* [AWS Kinesis Firehose](aws-kinesis-firehose-component.adoc)
 	* [AWS KMS](aws-kms-component.adoc)
@@ -197,6 +198,7 @@
 	* [etcd](etcd-component.adoc)
 	* [Exec](exec-component.adoc)
 	* [Facebook](facebook-component.adoc)
+	* [FHIR](fhir-component.adoc)
 	* [Flatpack](flatpack-component.adoc)
 	* [FOP](fop-component.adoc)
 	* [Freemarker](freemarker-component.adoc)
@@ -272,6 +274,7 @@
 	* [Kubernetes ConfigMap](kubernetes-config-maps-component.adoc)
 	* [Kubernetes Deployments](kubernetes-deployments-component.adoc)
 	* [Kubernetes HPA](kubernetes-hpa-component.adoc)
+	* [Kubernetes Job](kubernetes-job-component.adoc)
 	* [Kubernetes Namespaces](kubernetes-namespaces-component.adoc)
 	* [Kubernetes Nodes](kubernetes-nodes-component.adoc)
 	* [Kubernetes Persistent Volume](kubernetes-persistent-volumes-component.adoc)
@@ -407,7 +410,6 @@
 	* [CDI](cdi.adoc)
 	* [CXF Transport](cxf-transport.adoc)
 	* [Eclipse](eclipse.adoc)
-	* [Fhir Parent](fhir-parent.adoc)
 	* [Groovy DSL](groovy-dsl.adoc)
 	* [Guice](guice.adoc)
 	* [HawtDB](hawtdb.adoc)
@@ -545,10 +547,37 @@
     * [BAM Example](bam-example.adoc)
 
 * User Guide
-    * [Karaf](karaf.adoc)
+
+    * [Camel JAR Dependencies](camel-jar-dependencies.adoc)
+    * [Camel Boot](camel-boot.adoc)
+    * [Working with Camel and CDI]
+    * [Working with Camel and Spring]
+    * [Working with Camel and Guice]
+    * [Working with Camel and Karaf](karaf.adoc)
+    * [How Do I Configure Endpoints?]
+    * [Bean Integration]
+    * [Configuring Camel]
+    * [Configuring route startup ordering and autostartup]
+    * [Graceful Shutdown]
+    * [AsyncProcessorAwaitManager] for insight into the routing engine when it has been forced to block threads while exchanges are being processed asynchronous.
+    * [Error handling in Camel](error-handling-in-camel.adoc)
+    * [How to use Camel property placeholders]
+    * [Tutorials]
+    * [Examples]
     * [Testing](testing.adoc)
         * [Test](test.adoc)
         * [Blueprint Testing](test-blueprint.adoc)
         * [CDI Testing](test-cdi.adoc)
         * [Spring Testing](test-spring.adoc)
+    * [Xml Configuration]
+    * [Using CamelProxy] for how to use proxies for clients to easily invoke camel routes without them knowing
+    * [Camel Maven Plugin] for running Camel from a Maven goal
+    * [Guice Maven Plugin] for working with [Guice](guice.adoc)
+    * [Camel Maven Archetypes]
+    * [Creating a new Spring based Camel Route]
+    * [Camel JMX]
+    * [How to run Camel in a osgi container]
+    * [Using OSGi blueprint with Camel]
+    * [Working with Camel and SCR]
+    * Working with REST and [Rest DSL]
     * [JSSE Utility](camel-configuration-utilities.adoc)

@@ -35,6 +35,11 @@ public class NettyHttpComponentConfiguration
             ComponentConfigurationPropertiesCommon {
 
     /**
+     * Whether to enable auto configuration of the netty-http component. This is
+     * enabled by default.
+     */
+    private Boolean enabled;
+    /**
      * To use a custom org.apache.camel.component.netty.http.NettyHttpBinding
      * for binding to/from Netty and Camel Message API. The option is a
      * org.apache.camel.component.netty.http.NettyHttpBinding type.
@@ -262,11 +267,10 @@ public class NettyHttpComponentConfiguration
          * as a application/x-java-serialized-object content type. On the
          * producer side the exception will be deserialized and thrown as is,
          * instead of the HttpOperationFailedException. The caused exception is
-         * required to be serialized.
-         * <p/>
-         * This is by default turned off. If you enable this then be aware that
-         * Java will deserialize the incoming data from the request to Java and
-         * that can be a potential security risk.
+         * required to be serialized. This is by default turned off. If you
+         * enable this then be aware that Java will deserialize the incoming
+         * data from the request to Java and that can be a potential security
+         * risk.
          */
         private Boolean transferException = false;
         /**
@@ -335,26 +339,22 @@ public class NettyHttpComponentConfiguration
         private Integer chunkedMaxContentLength = 1048576;
         /**
          * The maximum length of all headers. If the sum of the length of each
-         * header exceeds this value, a {@link TooLongFrameException} will be
-         * raised.
+         * header exceeds this value, a TooLongFrameException will be raised.
          */
         private Integer maxHeaderSize = 8192;
         private Boolean allowDefaultCodec;
         /**
          * The status codes which are considered a success response. The values
          * are inclusive. Multiple ranges can be defined, separated by comma,
-         * e.g. <tt>200-204,209,301-304</tt>. Each range must be a single number
-         * or from-to with the dash included.
-         * <p/>
-         * The default range is <tt>200-299</tt>
+         * e.g. 200-204,209,301-304. Each range must be a single number or
+         * from-to with the dash included. The default range is 200-299
          */
         private String okStatusCodeRange = "200-299";
         /**
-         * Sets whether to use a relative path in HTTP requests.
-         * <p/>
-         * Some third party backend systems such as IBM Datapower do not support
-         * absolute URIs in HTTP POSTs, and setting this option to <tt>true</tt>
-         * can work around this problem.
+         * Sets whether to use a relative path in HTTP requests. Some third
+         * party backend systems such as IBM Datapower do not support absolute
+         * URIs in HTTP POSTs, and setting this option to true can work around
+         * this problem.
          */
         private Boolean useRelativePath = false;
 

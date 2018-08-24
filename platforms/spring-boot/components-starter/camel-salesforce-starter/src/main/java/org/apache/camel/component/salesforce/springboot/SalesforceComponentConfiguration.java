@@ -33,7 +33,6 @@ import org.apache.camel.component.salesforce.internal.dto.NotifyForOperationsEnu
 import org.apache.camel.spring.boot.ComponentConfigurationPropertiesCommon;
 import org.apache.camel.util.jsse.KeyStoreParameters;
 import org.springframework.boot.context.properties.ConfigurationProperties;
-import org.springframework.boot.context.properties.NestedConfigurationProperty;
 
 /**
  * The salesforce component is used for integrating Camel with the massive
@@ -47,6 +46,11 @@ public class SalesforceComponentConfiguration
         extends
             ComponentConfigurationPropertiesCommon {
 
+    /**
+     * Whether to enable auto configuration of the salesforce component. This is
+     * enabled by default.
+     */
+    private Boolean enabled;
     /**
      * Explicit authentication method to be used, one of USERNAME_PASSWORD,
      * REFRESH_TOKEN or JWT. Salesforce component can auto-determine the
@@ -468,7 +472,6 @@ public class SalesforceComponentConfiguration
          * Keystore parameters for keystore containing certificate and private
          * key needed for OAuth 2.0 JWT Bearer Token Flow.
          */
-        @NestedConfigurationProperty
         private KeyStoreParameters keystore;
         /**
          * Salesforce connected application Consumer token
@@ -579,9 +582,8 @@ public class SalesforceComponentConfiguration
          */
         private PayloadFormat format;
         /**
-         * Use raw payload {@link String} for request and response (either JSON
-         * or XML depending on {@code format} ), instead of DTOs, false by
-         * default
+         * Use raw payload String for request and response (either JSON or XML
+         * depending on format), instead of DTOs, false by default
          */
         private Boolean rawPayload = false;
         /**
@@ -648,7 +650,6 @@ public class SalesforceComponentConfiguration
          * 
          * @param approval
          */
-        @NestedConfigurationProperty
         private ApprovalRequest approval;
         /**
          * Bulk API content type, one of XML, CSV, ZIP_XML, ZIP_CSV
@@ -677,23 +678,23 @@ public class SalesforceComponentConfiguration
         private NotifyForFieldsEnum notifyForFields;
         /**
          * Notify for operations, options are ALL, CREATE, EXTENDED, UPDATE (API
-         * version < 29.0)
+         * version 29.0)
          */
         private NotifyForOperationsEnum notifyForOperations;
         /**
-         * Notify for create operation, defaults to false (API version >= 29.0)
+         * Notify for create operation, defaults to false (API version = 29.0)
          */
         private Boolean notifyForOperationCreate;
         /**
-         * Notify for update operation, defaults to false (API version >= 29.0)
+         * Notify for update operation, defaults to false (API version = 29.0)
          */
         private Boolean notifyForOperationUpdate;
         /**
-         * Notify for delete operation, defaults to false (API version >= 29.0)
+         * Notify for delete operation, defaults to false (API version = 29.0)
          */
         private Boolean notifyForOperationDelete;
         /**
-         * Notify for un-delete operation, defaults to false (API version >=
+         * Notify for un-delete operation, defaults to false (API version =
          * 29.0)
          */
         private Boolean notifyForOperationUndelete;
@@ -708,7 +709,6 @@ public class SalesforceComponentConfiguration
         /**
          * Salesforce1 Analytics report metadata for filtering
          */
-        @NestedConfigurationProperty
         private ReportMetadata reportMetadata;
         /**
          * Salesforce1 Analytics report execution instance ID
@@ -717,13 +717,11 @@ public class SalesforceComponentConfiguration
         /**
          * Custom Jetty Http Client to use to connect to Salesforce.
          */
-        @NestedConfigurationProperty
         private SalesforceHttpClient httpClient;
         /**
          * Custom Jackson ObjectMapper to use when serializing/deserializing
          * Salesforce objects.
          */
-        @NestedConfigurationProperty
         private ObjectMapper objectMapper;
         /**
          * Backoff interval increment for Streaming connection restart attempts
@@ -736,10 +734,7 @@ public class SalesforceComponentConfiguration
          */
         private Long maxBackoff;
         /**
-         * Default replayId setting if no value is found in
-         * {@link #initialReplayIdMap}
-         * 
-         * @param defaultReplayId
+         * Default replayId setting if no value is found in initialReplayIdMap
          */
         private Long defaultReplayId;
         /**
@@ -749,8 +744,6 @@ public class SalesforceComponentConfiguration
         /**
          * Limit on number of returned records. Applicable to some of the API,
          * check the Salesforce documentation.
-         * 
-         * @param limit
          */
         private Integer limit;
         /**
@@ -803,9 +796,9 @@ public class SalesforceComponentConfiguration
         private Boolean approvalSkipEntryCriteria;
         /**
          * Sets the behaviour of 404 not found status received from Salesforce
-         * API. Should the body be set to NULL {@link NotFoundBehaviour#NULL} or
-         * should a exception be signaled on the exchange
-         * {@link NotFoundBehaviour#EXCEPTION} - the default.
+         * API. Should the body be set to NULL NotFoundBehaviour#NULL or should
+         * a exception be signaled on the exchange NotFoundBehaviour#EXCEPTION -
+         * the default.
          */
         private NotFoundBehaviour notFoundBehaviour;
 

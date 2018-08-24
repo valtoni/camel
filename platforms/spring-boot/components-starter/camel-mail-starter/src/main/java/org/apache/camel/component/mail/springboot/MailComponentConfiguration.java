@@ -24,7 +24,6 @@ import org.apache.camel.component.mail.JavaMailSender;
 import org.apache.camel.spring.boot.ComponentConfigurationPropertiesCommon;
 import org.apache.camel.util.jsse.SSLContextParameters;
 import org.springframework.boot.context.properties.ConfigurationProperties;
-import org.springframework.boot.context.properties.NestedConfigurationProperty;
 
 /**
  * To send or receive emails using imap/pop3 or smtp protocols.
@@ -37,6 +36,11 @@ public class MailComponentConfiguration
         extends
             ComponentConfigurationPropertiesCommon {
 
+    /**
+     * Whether to enable auto configuration of the mail component. This is
+     * enabled by default.
+     */
+    private Boolean enabled;
     /**
      * Sets the Mail configuration
      */
@@ -95,9 +99,8 @@ public class MailComponentConfiguration
     public static class MailConfigurationNestedConfiguration {
         public static final Class CAMEL_NESTED_CLASS = org.apache.camel.component.mail.MailConfiguration.class;
         /**
-         * To use a custom
-         * {@link org.apache.camel.component.mail.JavaMailSender} for sending
-         * emails.
+         * To use a custom org.apache.camel.component.mail.JavaMailSender for
+         * sending emails.
          */
         private JavaMailSender javaMailSender;
         /**
@@ -261,7 +264,6 @@ public class MailComponentConfiguration
         /**
          * To configure security using SSLContextParameters.
          */
-        @NestedConfigurationProperty
         private SSLContextParameters sslContextParameters;
         /**
          * After processing a mail message, it can be copied to a mail folder
@@ -281,19 +283,17 @@ public class MailComponentConfiguration
         /**
          * If the mail consumer cannot retrieve a given mail message, then this
          * option allows to skip the message and move on to retrieve the next
-         * mail message.
-         * <p/>
-         * The default behavior would be the consumer throws an exception and no
-         * mails from the batch would be able to be routed by Camel.
+         * mail message. The default behavior would be the consumer throws an
+         * exception and no mails from the batch would be able to be routed by
+         * Camel.
          */
         private Boolean skipFailedMessage = false;
         /**
          * If the mail consumer cannot retrieve a given mail message, then this
          * option allows to handle the caused exception by the consumer's error
          * handler. By enable the bridge error handler on the consumer, then the
-         * Camel routing error handler can handle the exception instead.
-         * <p/>
-         * The default behavior would be the consumer throws an exception and no
+         * Camel routing error handler can handle the exception instead. The
+         * default behavior would be the consumer throws an exception and no
          * mails from the batch would be able to be routed by Camel.
          */
         private Boolean handleFailedMessage = false;

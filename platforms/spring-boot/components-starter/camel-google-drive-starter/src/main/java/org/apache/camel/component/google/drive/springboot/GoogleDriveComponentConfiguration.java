@@ -35,6 +35,11 @@ public class GoogleDriveComponentConfiguration
             ComponentConfigurationPropertiesCommon {
 
     /**
+     * Whether to enable auto configuration of the google-drive component. This
+     * is enabled by default.
+     */
+    private Boolean enabled;
+    /**
      * To use the shared configuration
      */
     private GoogleDriveConfigurationNestedConfiguration configuration;
@@ -108,7 +113,7 @@ public class GoogleDriveComponentConfiguration
         private String refreshToken;
         /**
          * Google drive application name. Example would be
-         * "camel-google-drive/1.0"
+         * camel-google-drive/1.0
          */
         private String applicationName;
         /**

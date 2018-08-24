@@ -16,11 +16,12 @@
  */
 package org.apache.camel.language.simple.ast;
 
+import java.util.Map;
+
 import org.apache.camel.Expression;
 import org.apache.camel.builder.ExpressionBuilder;
 import org.apache.camel.language.simple.types.SimpleParserException;
 import org.apache.camel.language.simple.types.SimpleToken;
-import org.apache.camel.util.LRUCache;
 import org.apache.camel.util.ObjectHelper;
 import org.apache.camel.util.OgnlHelper;
 import org.apache.camel.util.StringHelper;
@@ -32,14 +33,14 @@ import org.apache.camel.util.StringHelper;
 public class SimpleFunctionExpression extends LiteralExpression {
 
     // use caches to avoid re-parsing the same expressions over and over again
-    private LRUCache<String, Expression> cacheExpression;
+    private Map<String, Expression> cacheExpression;
 
     @Deprecated
     public SimpleFunctionExpression(SimpleToken token) {
         super(token);
     }
 
-    public SimpleFunctionExpression(SimpleToken token, LRUCache<String, Expression> cacheExpression) {
+    public SimpleFunctionExpression(SimpleToken token, Map<String, Expression> cacheExpression) {
         super(token);
         this.cacheExpression = cacheExpression;
     }

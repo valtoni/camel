@@ -51,7 +51,7 @@
     <jdk.version>1.8</jdk.version>
     <compiler.fork>false</compiler.fork>
 
-    <maven-compiler-plugin-version>3.7.0</maven-compiler-plugin-version>
+    <maven-compiler-plugin-version>3.8.0</maven-compiler-plugin-version>
     <maven-javadoc-plugin-version>3.0.1</maven-javadoc-plugin-version>
     <maven-surefire-plugin-version>2.22.0</maven-surefire-plugin-version>
     <!-- we need to override the version inherited from Apache POM for modules that use this POM as parent -->
@@ -63,7 +63,7 @@
     <errorprone-version>2.5</errorprone-version>
     <mycila-license-version>3.0</mycila-license-version>
     <gmavenplus-plugin-version>1.5</gmavenplus-plugin-version>
-    <groovy-version>2.4.15</groovy-version>
+    <groovy-version>2.5.1</groovy-version>
   </properties>
 
   <mailingLists>

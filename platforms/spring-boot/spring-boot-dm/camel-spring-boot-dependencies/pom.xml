@@ -32,6 +32,11 @@
     <dependencies>
       <dependency>
         <groupId>ca.uhn.hapi</groupId>
+        <artifactId>hapi-structures-v21</artifactId>
+        <version>2.3</version>
+      </dependency>
+      <dependency>
+        <groupId>ca.uhn.hapi</groupId>
         <artifactId>hapi-structures-v22</artifactId>
         <version>2.3</version>
       </dependency>
@@ -88,7 +93,7 @@
       <dependency>
         <groupId>com.github.dozermapper</groupId>
         <artifactId>dozer-core</artifactId>
-        <version>6.2.0</version>
+        <version>6.4.0</version>
       </dependency>
       <dependency>
         <groupId>com.google.code.scriptengines</groupId>
@@ -179,7 +184,7 @@
       <dependency>
         <groupId>net.sf.saxon</groupId>
         <artifactId>Saxon-HE</artifactId>
-        <version>9.8.0-12</version>
+        <version>9.8.0-14</version>
       </dependency>
       <dependency>
         <groupId>ognl</groupId>
@@ -270,6 +275,11 @@
       <dependency>
         <groupId>org.apache.camel</groupId>
         <artifactId>camel-apns-starter</artifactId>
+        <version>${project.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.apache.camel</groupId>
+        <artifactId>camel-as2</artifactId>
         <version>${project.version}</version>
       </dependency>
       <dependency>
@@ -3322,7 +3332,7 @@
       <dependency>
         <groupId>org.apache.pdfbox</groupId>
         <artifactId>jempbox</artifactId>
-        <version>1.8.13</version>
+        <version>1.8.15</version>
       </dependency>
       <dependency>
         <groupId>org.apache.pdfbox</groupId>
@@ -3362,7 +3372,7 @@
       <dependency>
         <groupId>org.awaitility</groupId>
         <artifactId>awaitility</artifactId>
-        <version>3.1.1</version>
+        <version>3.1.2</version>
       </dependency>
       <dependency>
         <groupId>org.cassandraunit</groupId>
@@ -3408,7 +3418,7 @@
       <dependency>
         <groupId>org.codehaus.jettison</groupId>
         <artifactId>jettison</artifactId>
-        <version>1.3.8</version>
+        <version>1.4.0</version>
       </dependency>
       <dependency>
         <groupId>org.codehaus.woodstox</groupId>
@@ -3439,7 +3449,7 @@
       <dependency>
         <groupId>org.knowm.xchange</groupId>
         <artifactId>xchange-core</artifactId>
-        <version>4.3.8</version>
+        <version>4.3.9</version>
       </dependency>
       <dependency>
         <groupId>org.mozilla</groupId>

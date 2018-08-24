@@ -33,6 +33,11 @@ public class StubComponentConfiguration
             ComponentConfigurationPropertiesCommon {
 
     /**
+     * Whether to enable auto configuration of the stub component. This is
+     * enabled by default.
+     */
+    private Boolean enabled;
+    /**
      * Sets the default maximum capacity of the SEDA queue (i.e., the number of
      * messages it can hold).
      */

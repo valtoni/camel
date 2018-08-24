@@ -42,6 +42,11 @@ public class EhcacheComponentConfiguration
             ComponentConfigurationPropertiesCommon {
 
     /**
+     * Whether to enable auto configuration of the ehcache component. This is
+     * enabled by default.
+     */
+    private Boolean enabled;
+    /**
      * Sets the global component configuration
      */
     private EhcacheConfigurationNestedConfiguration configuration;
@@ -170,20 +175,32 @@ public class EhcacheComponentConfiguration
          * The cache manager configuration
          */
         private Configuration cacheManagerConfiguration;
+        /**
+         * Set the delivery mode (ordered, unordered)
+         */
         private EventOrdering eventOrdering = EventOrdering.ORDERED;
+        /**
+         * Set the delivery mode (synchronous, asynchronous)
+         */
         private EventFiring eventFiring = EventFiring.ASYNCHRONOUS;
+        /**
+         * Set the type of events to listen for
+         */
         private Set eventTypes;
         /**
          * The default cache configuration to be used to create caches.
          */
         private CacheConfiguration configuration;
+        /**
+         * A map of cache configuration to be used to create caches.
+         */
         private Map configurations;
         /**
-         * The cache key type, default "java.lang.Object"
+         * The cache key type, default java.lang.Object
          */
         private String keyType = "java.lang.Object";
         /**
-         * The cache value type, default "java.lang.Object"
+         * The cache value type, default java.lang.Object
          */
         private String valueType = "java.lang.Object";
 

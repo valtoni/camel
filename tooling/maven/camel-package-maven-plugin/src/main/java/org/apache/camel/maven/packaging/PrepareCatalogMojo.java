@@ -357,6 +357,8 @@ public class PrepareCatalogMojo extends AbstractMojo {
                             target = new File(dir, "camel-box-component/target/classes");
                         } else if ("camel-servicenow".equals(dir.getName())) {
                             target = new File(dir, "camel-servicenow-component/target/classes");
+                        } else if ("camel-fhir".equals(dir.getName())) {
+                            target = new File(dir, "camel-fhir-component/target/classes");
                         }
 
                         int before = componentFiles.size();
@@ -801,7 +803,8 @@ public class PrepareCatalogMojo extends AbstractMojo {
                         || "camel-olingo2".equals(dir.getName())
                         || "camel-olingo4".equals(dir.getName())
                         || "camel-servicenow".equals(dir.getName())
-                        || "camel-salesforce".equals(dir.getName());
+                        || "camel-salesforce".equals(dir.getName())
+                        || "camel-fhir".equals(dir.getName());
                     if (special || special2) {
                         continue;
                     }
@@ -967,7 +970,7 @@ public class PrepareCatalogMojo extends AbstractMojo {
                         File target = new File(dir, "src/main/docs");
 
                         // special for these as they are in sub dir
-                        if ("camel-as3".equals(dir.getName())) {
+                        if ("camel-as2".equals(dir.getName())) {
                             target = new File(dir, "camel-as2-component/src/main/docs");
                         } else if ("camel-salesforce".equals(dir.getName())) {
                             target = new File(dir, "camel-salesforce-component/src/main/docs");
@@ -981,6 +984,8 @@ public class PrepareCatalogMojo extends AbstractMojo {
                             target = new File(dir, "camel-box-component/src/main/docs");
                         } else if ("camel-servicenow".equals(dir.getName())) {
                             target = new File(dir, "camel-servicenow-component/src/main/docs");
+                        } else if ("camel-fhir".equals(dir.getName())) {
+                            target = new File(dir, "camel-fhir-component/src/main/docs");
                         }
 
                         int before = adocFiles.size();

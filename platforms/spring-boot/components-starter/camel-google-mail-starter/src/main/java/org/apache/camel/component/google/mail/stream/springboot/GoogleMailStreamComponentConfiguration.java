@@ -33,6 +33,11 @@ public class GoogleMailStreamComponentConfiguration
             ComponentConfigurationPropertiesCommon {
 
     /**
+     * Whether to enable auto configuration of the google-mail-stream component.
+     * This is enabled by default.
+     */
+    private Boolean enabled;
+    /**
      * The configuration
      */
     private GoogleMailStreamConfigurationNestedConfiguration configuration;
@@ -96,8 +101,7 @@ public class GoogleMailStreamComponentConfiguration
          */
         private String refreshToken;
         /**
-         * Google mail application name. Example would be
-         * "camel-google-mail/1.0"
+         * Google mail application name. Example would be camel-google-mail/1.0
          */
         private String applicationName;
         /**

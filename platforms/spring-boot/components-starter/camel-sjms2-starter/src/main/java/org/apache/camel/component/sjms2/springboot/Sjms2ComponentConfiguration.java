@@ -33,6 +33,11 @@ public class Sjms2ComponentConfiguration
             ComponentConfigurationPropertiesCommon {
 
     /**
+     * Whether to enable auto configuration of the sjms2 component. This is
+     * enabled by default.
+     */
+    private Boolean enabled;
+    /**
      * A ConnectionFactory is required to enable the SjmsComponent. It can be
      * set directly or set set as part of a ConnectionResource. The option is a
      * javax.jms.ConnectionFactory type.
@@ -58,7 +63,7 @@ public class Sjms2ComponentConfiguration
      * whether JMS header keys contain illegal characters. You can provide your
      * own implementation of the
      * org.apache.camel.component.jms.JmsKeyFormatStrategy and refer to it using
-     * the notation. The option is a
+     * the # notation. The option is a
      * org.apache.camel.component.sjms.jms.JmsKeyFormatStrategy type.
      */
     private String jmsKeyFormatStrategy;

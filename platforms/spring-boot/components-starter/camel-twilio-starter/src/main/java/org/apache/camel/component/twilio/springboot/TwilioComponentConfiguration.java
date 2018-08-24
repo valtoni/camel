@@ -34,6 +34,11 @@ public class TwilioComponentConfiguration
             ComponentConfigurationPropertiesCommon {
 
     /**
+     * Whether to enable auto configuration of the twilio component. This is
+     * enabled by default.
+     */
+    private Boolean enabled;
+    /**
      * To use the shared configuration
      */
     private TwilioConfigurationNestedConfiguration configuration;
@@ -115,16 +120,10 @@ public class TwilioComponentConfiguration
         public static final Class CAMEL_NESTED_CLASS = org.apache.camel.component.twilio.TwilioConfiguration.class;
         /**
          * What kind of operation to perform
-         * 
-         * @param apiNamethe
-         *            API Name to set
          */
         private TwilioApiName apiName;
         /**
          * What sub operation to use for the selected operation
-         * 
-         * @param methodNamethe
-         *            methodName to set
          */
         private String methodName;
 
